@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WordCracker</title> <!-- Updated title to "WordCracker" -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">WordCracker</h1> <!-- Updated title to "WordCracker" -->
+        
+        <!-- Difficulty buttons -->
+        <div class="difficulty-buttons">
+            <button id="easy-button" class="difficulty-button">Easy (8 attempts)</button>
+            <button id="medium-button" class="difficulty-button selected">Medium (6 attempts)</button>
+            <button id="hard-button" class="difficulty-button">Hard (4 attempts)</button>
+        </div>
+        
+        <div class="word-display">
+            <div class="letter-square"></div>
+            <div class="letter-square"></div>
+            <div class="letter-square"></div>
+            <div class="letter-square"></div>
+            <div class="letter-square"></div>
+        </div>
+        <input type="text" id="guess-input">
+        <button id="guess-button">Guess</button>
+        <div id="result" class="result"></div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
