@@ -1,5 +1,10 @@
-// Define the secret word (you can replace this with a word generator)
-const secretWord = "apple";
+import { generate } from 'https://cdn.jsdelivr.net/npm/random-words@2.0.0/+esm';
+
+//Testing method
+//console.log(generate({minLength : 5, maxLength : 5 }));
+
+//Define the secret random word
+const secretWord = generate({minLength : 5, maxLength : 5 });
 
 // Initialize the game state
 let attempts = 0;
