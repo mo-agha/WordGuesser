@@ -1,8 +1,5 @@
 import { generate } from 'https://cdn.jsdelivr.net/npm/random-words@2.0.0/+esm';
 
-//Testing method
-//console.log(generate({minLength : 5, maxLength : 5 }));
-
 //Define the secret random word
 const secretWord = generate({minLength : 5, maxLength : 5 });
 
@@ -13,7 +10,6 @@ const API_KEY = 'df74eca4f4mshba688ef5a2abcb1p12376fjsnde18acc12f62';
 let attempts = 0;
 let maxAttempts = 0;
 let rowNumber = 0;
-// let correctPositions = []; // Array to hold letters in correct positions
 let guessedWord = "_____"; // Initialize to match the length of the secret word
 
 // DOM elements
@@ -105,17 +101,6 @@ async function handleGuess() {
 
     guessedWord = guess;
     attempts++;
-
-    // for (let i = 0; i < secretWord.length; i++) {
-    //     if (secretWord[i] === guess[i]) {
-    //         // guessedWord = guessedWord.substring(0, i) + guess[i] + guessedWord.substring(i + 1);
-    //         // correctPositions.push(guess[i]);
-    //         guessedWord = guess.substring(0, i) + guess[i] + guess.substring(i + 1);
-    //     }
-    //     else if(secretWord.includes(guess[i])){
-    //         alert(`Letter "${guess[i]}" is part of word but in wrong position`);
-    //     }    
-    // }
 
     updateWordDisplay(rowNumber);
 
