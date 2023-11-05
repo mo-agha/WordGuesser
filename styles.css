@@ -6,7 +6,8 @@ html, body {
     justify-content: center;
     align-items: center;
     font-family: Arial, sans-serif;
-    background-color: #1a271d;
+    /*background-color: #1a271d;*/
+    background-color: #202120;
 }
 
 /* Style the container */
@@ -17,7 +18,7 @@ html, body {
 /* Style the title */
 .title {
     font-family: "Times New Roman", Times, serif;
-    font-size: 32px;
+    font-size: 52px;
     color: #cae9ea;
 }
 
@@ -32,11 +33,11 @@ html, body {
 
 .letter-row {
     display: flex;
-    margin: 5px 0;
+    margin: 10px 0;
 }
 .letter-square {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     background-color: #71c5c8;
     color: #fff;
     display: flex;
@@ -45,7 +46,7 @@ html, body {
     font-size: 18px;
     font-weight: bold;
     border-radius: 4px;
-    margin-right: 5px; /* Add margin between squares */
+    margin-right: 8px; /* Add margin between squares */
 }
 
 /* Style the input and button */
@@ -114,3 +115,9 @@ label[for="difficulty"] {
     font-weight: bold; /* Add bold text for the selected button */
 }
 
+.test {
+    font-size: 18px;
+    margin-top: 10px;
+    color: #ffffff;
+    font-weight: bold;
+}

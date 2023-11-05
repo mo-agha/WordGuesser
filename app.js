@@ -6,6 +6,9 @@ import { generate } from 'https://cdn.jsdelivr.net/npm/random-words@2.0.0/+esm';
 //Define the secret random word
 const secretWord = generate({minLength : 5, maxLength : 5 });
 
+// WordsAPI API Key
+const API_KEY = 'df74eca4f4mshba688ef5a2abcb1p12376fjsnde18acc12f62';
+
 // Initialize the game state
 let attempts = 0;
 let maxAttempts = 0;
@@ -17,6 +20,7 @@ let guessedWord = "_____"; // Initialize to match the length of the secret word
 const guessInput = document.getElementById("guess-input");
 const guessButton = document.getElementById("guess-button");
 const resultDisplay = document.getElementById("result");
+const testDisplay = document.getElementById("test");
 
 // Function to update the word display
 function updateWordDisplay(rowIndex) {
@@ -72,14 +76,16 @@ function setDifficulty(difficulty) {
     attempts = 0;
     guessedWord = "_".repeat(secretWord.length);
     guessButton.disabled = false;
-    resultDisplay.textContent = `Attempts: ${attempts}/${maxAttempts}` + secretWord;
+    resultDisplay.textContent = `Attempts: ${attempts}/${maxAttempts}`;
+    testDisplay.textContent = 'Test word: ' + secretWord;
     //updateWordDisplay();
 }
 
 // Function to handle a guess
-function handleGuess() {
+async function handleGuess() {
     // let rowNumber = 0;
     const guess = guessInput.value.trim().toLowerCase(); // Trim whitespace and convert to lowercase
+    const isValid = await checkWordValidity(guess);
 
     // Validate the guess using a regular expression
     if (!/^[a-zA-Z]+$/.test(guess)) {
@@ -89,6 +95,11 @@ function handleGuess() {
 
     if (guess.length !== secretWord.length) {
         resultDisplay.textContent = "Guess must be the same length as the secret word.";
+        return;
+    }
+
+    if(!isValid){
+        resultDisplay.textContent = "Word does not exist!"
         return;
     }
 
@@ -121,6 +132,33 @@ function handleGuess() {
 
     guessInput.value = "";
     guessedWord = "_____";
+}
+
+async function checkWordValidity(guess){
+    try {
+        const response = await fetch(`https://wordsapiv1.p.rapidapi.com/words/${guess}`, {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com',
+                'X-RapidAPI-Key': API_KEY,
+            },
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            if (data.results.length > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            console.error('Error:', response.statusText);
+            return false;
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        return false;
+    }
 }
 
 // Event listeners for difficulty buttons
