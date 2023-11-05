@@ -24,11 +24,16 @@ html, body {
 /* Style the letter squares and center them */
 .word-display {
     display: flex;
+    flex-direction: column;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     margin: 20px 0;
 }
 
+.letter-row {
+    display: flex;
+    margin: 5px 0;
+}
 .letter-square {
     width: 30px;
     height: 30px;
@@ -42,8 +47,6 @@ html, body {
     border-radius: 4px;
     margin-right: 5px; /* Add margin between squares */
 }
-
-
 
 /* Style the input and button */
 #guess-input {
