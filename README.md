@@ -1,2 +1,2 @@
 # WordGuesser
-A take on the popular game Wordle. More information in the README file.
+A take on the popular game Wordle.
