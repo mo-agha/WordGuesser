@@ -6,7 +6,6 @@ html, body {
     justify-content: center;
     align-items: center;
     font-family: Arial, sans-serif;
-    /*background-color: #1a271d;*/
     background-color: #202120;
 }
 
@@ -17,9 +16,10 @@ html, body {
 
 /* Style the title */
 .title {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 52px;
-    color: #cae9ea;
+    font-family: Arial, sans-serif;
+    font-size: 36px;
+    /*color: #e7dc3c;*/
+    color: #ffd700;
 }
 
 /* Style the letter squares and center them */
@@ -38,7 +38,7 @@ html, body {
 .letter-square {
     width: 40px;
     height: 40px;
-    background-color: #71c5c8;
+    background-color: #508d9c;
     color: #fff;
     display: flex;
     justify-content: center;
@@ -46,6 +46,7 @@ html, body {
     font-size: 18px;
     font-weight: bold;
     border-radius: 4px;
+    text-transform: uppercase;
     margin-right: 8px; /* Add margin between squares */
 }
 
@@ -53,22 +54,38 @@ html, body {
 #guess-input {
     padding: 5px;
     font-size: 16px;
+    border-radius: 4px;
+    border: none;
+    text-align: center;
+    width: 150px;
+    transition: width 0.2s ease;
+}
+
+#guess-input:focus {
+    border: 2px solid #ffd700; /* Gold border color when in focus */
+    width: 200px;
 }
 
 #guess-button {
     padding: 5px 10px;
     font-size: 16px;
-    background-color: #508d9c;
+    background-color: #228B22;
     color: #fff;
     border: none;
     cursor: pointer;
+    border-radius: 4px;
+}
+
+#guess-button:active {
+    background-color: rgb(37, 87, 25); /* Change to a darker color when the button is clicked */
+    font-weight: bold;
 }
 
 /* Style the result message */
 .result {
     font-size: 18px;
     margin-top: 10px;
-    color: #e74c3c;
+    color: #ffd700;
     font-weight: bold;
 }
 
@@ -100,7 +117,8 @@ label[for="difficulty"] {
 .difficulty-button {
     padding: 5px 10px;
     font-size: 16px;
-    background-color: #208c8c;
+    /*background-color: #208c8c;*/
+    background-color: #438e43;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -111,8 +129,67 @@ label[for="difficulty"] {
 
 /* Style the selected button */
 .difficulty-button.selected {
-    background-color: #273b40;
+    /*background-color: #273b40;*/
+    background-color: #014901;
     font-weight: bold; /* Add bold text for the selected button */
+}
+
+.letters {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.letters div {
+    display: flex;
+}
+
+.keyboard-button {
+    margin: 2px 3px;
+    padding: 0.75rem;
+    background-color: #5d8c98;
+    cursor: pointer;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.keyboard-button:active {
+    background-color: #38555d; /* Change to a darker color when the button is clicked */
+}
+
+@keyframes transition {
+    0% {transform: scaleY(1);}
+    50% {transform: scaleY(0);}
+    100% {transform: scaleY(1);}
+}
+
+.animated {
+    animation: transition 0.5s ease;
+}
+
+@keyframes winner {
+    0% {transform: scaleX(1)}
+    50% {transform: scaleX(1.5);}
+    100% {transform: scaleX(1);}
+}
+
+.win-animation {
+    animation: winner 1s ease;
+}
+
+@keyframes loser {
+    0% {transform: scaleX(1)}
+    50% {transform: scaleX(0.75);}
+    100% {transform: scaleX(1);}
+}
+
+.loser-animation {
+    animation: loser 2s ease;
 }
 
 .test {
