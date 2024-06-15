@@ -4,7 +4,7 @@ import { generate } from 'https://cdn.jsdelivr.net/npm/random-words@2.0.0/+esm';
 const secretWord = generate({minLength : 5, maxLength : 5 });
 
 // WordsAPI API Key
-const API_KEY = config.MY_KEY;
+const API_KEY = process.env.MY_KEY;
 
 // Initialize the game state
 let attempts = 0;
