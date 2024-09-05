@@ -246,36 +246,6 @@ async function handleGuess() {
   guessedWord = "_____";
 }
 
-async function checkWordValidity(guess) {
-  try {
-    const response = await fetch(
-      `https://wordsapiv1.p.rapidapi.com/words/${guess}`,
-      {
-        method: "GET",
-        headers: {
-          "X-RapidAPI-Host": "wordsapiv1.p.rapidapi.com",
-          "X-RapidAPI-Key": API_KEY,
-        },
-      }
-    );
-
-    if (response.ok) {
-      const data = await response.json();
-      if (data.results.length > 0) {
-        return true;
-      } else {
-        return false;
-      }
-    } else {
-      console.error("Error:", response.statusText);
-      return false;
-    }
-  } catch (error) {
-    console.error("Error:", error);
-    return false;
-  }
-}
-
 // Event listeners for difficulty buttons
 document.getElementById("easy-button").addEventListener("click", function () {
   setDifficulty("easy");
