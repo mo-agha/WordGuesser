@@ -8,12 +8,13 @@ const endTime = performance.now();
 console.log(endTime);
 
 console.log(endTime - startTime);
-//const secretWord = 'waste';
-const domain = process.env.domain || "http://localhost:3000/";
+
 // Check Word Validity
 async function checkWordValidity(word) {
   try {
-    const response = await fetch(`${domain}check-word?word=${word}`);
+    const response = await fetch(
+      `https://word-guesser.vercel.app/check-word?word=${word}`
+    );
     const data = await response.json();
     if (data.results.length > 0) {
       return true;
