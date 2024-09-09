@@ -13,11 +13,10 @@ console.log(endTime - startTime);
 // Check Word Validity
 async function checkWordValidity(word) {
   try {
-    const response = await axios.get(
+    const res = await axios.get(
       `/api/check-word?word=${word}`
     );
-    const data = await response.json();
-    if (data.results && data.results.length > 0) {
+    if (res.data.results && res.data.results.length > 0) {
       return true;
     } else {
       return false;
