@@ -13,7 +13,7 @@ console.log(endTime - startTime);
 async function checkWordValidity(word) {
   try {
     const response = await fetch(
-      `http://localhost:3000/check-word?word=${word}`
+      `https://word-guesser.vercel.app/check-word?word=${word}`
     );
     const data = await response.json();
     if (data.results.length > 0) {
