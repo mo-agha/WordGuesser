@@ -1,5 +1,4 @@
 import { generate } from "https://cdn.jsdelivr.net/npm/random-words@2.0.0/+esm";
-import axios from "axios";
 
 //Define the secret random word
 const startTime = performance.now();
@@ -13,10 +12,11 @@ console.log(endTime - startTime);
 // Check Word Validity
 async function checkWordValidity(word) {
   try {
-    const res = await axios.get(
+    const response = await fetch(
       `/api/check-word?word=${word}`
     );
-    if (res.data.results && res.data.results.length > 0) {
+    const data = await response.json();
+    if (data.results && data.results.length > 0) {
       return true;
     } else {
       return false;
