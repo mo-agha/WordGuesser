@@ -6,7 +6,7 @@ const app = express();
 
 app.use(cors());
 
-app.get("/api/check-word", async (req, res) => {
+app.get("/check-word", async (req, res) => {
   const word = req.query.word;
   try {
     const response = await axios.get(

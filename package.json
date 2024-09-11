@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "A take on the popular game Wordle. More information in the README file.",
   "main": "app.js",
-  "scripts": {
-    "start": "node index.js"
-  },
   "repository": {
     "type": "git",
     "url": "WordGuesser"

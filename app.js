@@ -9,12 +9,12 @@ console.log(endTime);
 
 console.log(endTime - startTime);
 
+const apiURL = "https://word-guesser.vercel.app/";
+
 // Check Word Validity
 async function checkWordValidity(word) {
   try {
-    const response = await fetch(
-      `/api/check-word?word=${word}`
-    );
+    const response = await fetch(`${apiURL}/check-word?word=${word}`);
     const data = await response.json();
     if (data.results && data.results.length > 0) {
       return true;
