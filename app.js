@@ -9,7 +9,7 @@ console.log(endTime);
 
 console.log(endTime - startTime);
 
-const apiURL = "https://word-guesser.vercel.app/";
+const apiURL = "https://word-guesser.vercel.app";
 
 // Check Word Validity
 async function checkWordValidity(word) {
